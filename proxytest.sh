@@ -1,7 +1,7 @@
 #!/bin/bash
 # This program gets ip from ifconfig.me with and without proxychains, checks lenght and compares addresses if valid.
 # Dep: proxychains4, wget
-# TODO: Add more sources, Add support for curl, Add support for older versions of proxychains4
+# TODO: Add more sources, Add support for curl, Add support for older versions of proxychains
 
 ip=$(wget -qO - http://ifconfig.me -o ip.log | grep '"ip_address"' | sed 's/[^0-9.]//g')
 proxy_ip=$(proxychains4 -q wget -qO - http://ifconfig.me -o proxy.log | grep '"ip_address"' | sed 's/[^0-9.]//g')
